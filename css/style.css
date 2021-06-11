@@ -148,6 +148,7 @@
   
   .card-body {
     padding: 2.5%;
+    background-color: var(--primary);
   }
   
   /* FORM */
