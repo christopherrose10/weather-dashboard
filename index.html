@@ -16,21 +16,25 @@
   </header>
 
 
-  <main class="flex-row justify-space-between">
-    <div class="col-4 col-md-4">
-      <div class="card">
-        <h3 class="card-header text-uppercase">Search for a City:</h3>
-        <form id="user-form" class="card-body">
-          <input name="username" id="username" type="text" autofocus="true" class="form-input" />
-          <button type="submit" class="btn">Search</button>
-        </form>
-      </div>
-    </div>
+  <main class="container">
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <div class="card">
+            <h3 class="card-header text-uppercase">Search for a City:</h3>
+            <form id="user-form" class="card-body">
+              <input name="username" id="username" type="text" autofocus="true" class="form-input" />
+              <button type="submit" class="btn">Search</button>
+            </form>
+          </div>
+        </div>
 
-    <div class="col-8 col-md-8">
-      <div class="col-8 col-md-8">
-        <h2 class="subtitle">City:<span id="repo-search-term"></span></h2>
-        <div id="repos-container" class="list-group"></div>
+
+        <div class="col-8">
+          <h2 class="subtitle"><span id="repo-search-term"></span></h2>
+          <div id="repos-container" class="list-group"></div>
+        </div>
+
       </div>
     </div>
   </main>

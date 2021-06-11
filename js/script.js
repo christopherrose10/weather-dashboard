@@ -55,21 +55,9 @@ var findCity = function (username) {
             fiveDay(username);
 
         })
-        // .then(function (response) {
-        //     return response.json();
-        // })
-        // .then(function (response) {
-        //     if (response.data.length === 0) {
-        //         console.log('City not found.');
-        //     } else {
-        //         console.log(response.data[0]);
-        //         var responseContainerEl = document.querySelector('#repos-container');
-        //         responseContainerEl.innerHTML = '';
-        //     }
-        // });
 }
 
-function getUVIndex (lat,lon) {
+function getUVIndex(lat, lon) {
     console.log(username);
     fetch(
         // Fetch for city 
@@ -89,7 +77,7 @@ function getUVIndex (lat,lon) {
 
 }
 
-function fiveDay (username) {
+function fiveDay(username) {
     fetch(
         // Fetch for city 
         `https://api.openweathermap.org/data/2.5/forecast?q=${username}&appid=${apiKey}&units=imperial`
@@ -100,25 +88,23 @@ function fiveDay (username) {
         })
         .then(function (citySearched) {
             console.log(citySearched);
-            // var currentUVI = document.createElement("p");
-            // currentUVI.textContent = "UV Index: " + citySearched.current.uvi;
-            // responseHeaderEl.append(currentUVI);
             for (i = 0; i < citySearched.list.length; i++) {
 
-                if(citySearched.list[i].dt_txt.indexOf("18:00:00") !== -1) {
+                if (citySearched.list[i].dt_txt.indexOf("18:00:00") !== -1) {
                     console.log(citySearched.list[i]);
                     var card = document.createElement("div");
                     card.setAttribute("class", "card");
                     var cardBody = document.createElement("div");
                     cardBody.setAttribute("class", "card-body");
                     var cityNameDate = document.createElement("h3");
+                    cityNameDate.setAttribute("class", "card-header")
                     cityNameDate.textContent = new Date(citySearched.list[i].dt_txt).toLocaleDateString();
                     var cityTemps = document.createElement("p");
-                    cityTemps.textContent = citySearched.list[i].main.temp;
+                    cityTemps.textContent = "Temperature: " + citySearched.list[i].main.temp;
                     var cityHum = document.createElement("p");
                     cityHum.textContent = "Humidity: " + citySearched.list[i].main.humidity;
                     var cityWindSpeed = document.createElement("p");
-                    cityWindSpeed.textContent = "Wind Speed: " + citySearched.list[i].wind.speed;        
+                    cityWindSpeed.textContent = "Wind Speed: " + citySearched.list[i].wind.speed;
                     cardBody.append(cityNameDate, cityTemps, cityHum, cityWindSpeed);
                     card.append(cardBody);
                     repoContainerEl.append(card);
